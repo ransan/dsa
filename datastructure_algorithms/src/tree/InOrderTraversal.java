@@ -1,6 +1,6 @@
 package tree;
 
-public class PreOrderTraversal {
+public class InOrderTraversal {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(10);
         root.setLeft(new TreeNode(20));
@@ -10,14 +10,15 @@ public class PreOrderTraversal {
         root.getLeft().getRight().setRight(new TreeNode(80));
         root.setRight(new TreeNode(30));
         root.getRight().setRight(new TreeNode(60));
-        preOrder(root);
+        inOrder(root);
     }
 
-    public static void preOrder(TreeNode treeNode) {
+    public static void inOrder(TreeNode treeNode) {
         if (treeNode != null) {
+            inOrder(treeNode.getLeft());
             System.out.println(treeNode.getValue());
-            preOrder(treeNode.getLeft());
-            preOrder(treeNode.getRight());
+            inOrder(treeNode.getRight());
         }
     }
+
 }
